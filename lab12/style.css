@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Make the container fill the entire viewport height */
+.container {
+  position: relative;
+  height: 100vh; /* Full height of the viewport */
+}
+
+/* Adjust slideshow images to fit the container */
+.mySlides {
+  display: none;
+  height: 80vh; /* 80% of the viewport height for slideshow images */
+  position: relative;
+}
+
+.mySlides img {
+  width: 100%;
+  height: 100%; /* Ensure image covers the whole height of the slide */
+  object-fit: cover; /* Make sure images don't stretch */
+}
+
+/* Ensure columns have the same height as the container */
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch; /* Ensure all columns stretch to same height */
+  height: 100%; /* Full height of the container */
+}
+
+.column {
+  flex: 1; /* Each column will take equal space */
+  padding: 0 5px; /* Space between images */
+}
+
+.column img {
+  width: 100%; /* Ensure images take up 100% of the column's width */
+  height: 20vh; /* Make images take up the full height of the column */
+  object-fit: cover; /* Ensure images don’t stretch or squish */
+}
+
+/* Hover effect for small images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+/* Styling for navigation arrows */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text on images */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Caption container */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}

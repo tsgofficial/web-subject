@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Банхарнаторын аялал</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        font-family: Arial, sans-serif;
+      }
+
+      @keyframes tree-move {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      @keyframes bush-move {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* Day/Night Animation */
+      @keyframes sky-transition {
+        0% {
+          background-color: #87ceeb; /* Day Sky */
+        }
+        50% {
+          background-color: #2c3e50; /* Night Sky */
+        }
+        100% {
+          background-color: #87ceeb; /* Day Sky */
+        }
+      }
+
+      @keyframes sun-transition {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+
+      @keyframes moon-transition {
+        0%,
+        100% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+
+      .top-half,
+      .bottom-half {
+        width: 100%;
+      }
+
+      .top-half {
+        height: 90vh;
+        background-color: #87ceeb; /* Sky Blue (Day) */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        animation: sky-transition infinite 5s ease-in-out; /* Animate sky color */
+      }
+
+      .bottom-half {
+        height: 50vh;
+        background-color: #567d46;
+      }
+
+      h1 {
+        font-size: 3em;
+        color: #a0c4ff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        margin-top: 20px;
+        z-index: 10; /* Ensure the title appears on top */
+        position: absolute;
+        top: 5%; /* Move the title slightly higher */
+        left: 50%;
+        transform: translateX(-50%); /* Center horizontally */
+      }
+
+      .tree-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 100%;
+        display: flex;
+        animation: tree-move 20s linear infinite;
+      }
+
+      .bush-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 100%;
+        display: flex;
+        z-index: 3;
+        animation: bush-move 3s linear infinite;
+      }
+
+      .tree {
+        width: 100px;
+        scale: 4;
+        position: absolute;
+        margin-bottom: 100px;
+      }
+
+      .bush {
+        width: 80px;
+        scale: 3;
+        filter: blur(0.3px);
+        z-index: 2;
+        position: absolute;
+        margin-bottom: 18px;
+      }
+
+      .dog {
+        width: 150px;
+        position: absolute;
+        left: 50%;
+        bottom: 40px;
+        transform: translateX(-50%);
+        scale: 2;
+      }
+
+      /* Sun and Moon */
+      .sun {
+        width: 120px; /* Set sun size */
+        height: 120px; /* Set sun size */
+        display: block;
+        position: absolute;
+        top: 10%;
+        left: 20%;
+        transform: translateX(-50%);
+        animation: sun-transition infinite 10s ease-in-out; /* Animate sun fade */
+      }
+
+      .moon {
+        width: 120px; /* Set moon size */
+        height: 120px; /* Set moon size */
+        display: block;
+        position: absolute;
+        top: 10%;
+        left: 80%;
+        transform: translateX(-50%);
+        animation: moon-transition infinite 10s ease-in-out; /* Animate moon fade */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-half">
+      <h1>Банхарнаторын аялал</h1>
+
+      <div class="tree-container">
+        <img
+          src="mod1.svg"
+          alt="Tree"
+          class="tree"
+          style="left: 5%; bottom: 50px"
+        />
+        <img
+          src="mod2.svg"
+          alt="Tree"
+          class="tree"
+          style="left: 20%; bottom: 50px"
+        />
+        <img
+          src="mod3.svg"
+          alt="Tree"
+          class="tree"
+          style="left: 35%; bottom: 50px"
+        />
+        <img
+          src="mod1.svg"
+          alt="Tree"
+          class="tree"
+          style="left: 55%; bottom: 50px"
+        />
+        <img
+          src="mod2.svg"
+          alt="Tree"
+          class="tree"
+          style="left: 70%; bottom: 50px"
+        />
+        <img
+          src="mod3.svg"
+          alt="Tree"
+          class="tree"
+          style="left: 85%; bottom: 50px"
+        />
+      </div>
+
+      <div class="bush-container">
+        <img
+          src="but1.svg"
+          alt="Bush"
+          class="bush"
+          style="left: 5%; bottom: 10px"
+        />
+        <img
+          src="but2.svg"
+          alt="Bush"
+          class="bush"
+          style="left: 20%; bottom: 10px"
+        />
+        <img
+          src="but3.svg"
+          alt="Bush"
+          class="bush"
+          style="left: 35%; bottom: 10px"
+        />
+        <img
+          src="but1.svg"
+          alt="Bush"
+          class="bush"
+          style="left: 55%; bottom: 10px"
+        />
+        <img
+          src="but2.svg"
+          alt="Bush"
+          class="bush"
+          style="left: 70%; bottom: 10px"
+        />
+        <img
+          src="but3.svg"
+          alt="Bush"
+          class="bush"
+          style="left: 85%; bottom: 10px"
+        />
+      </div>
+
+      <img src="nohoi.svg" alt="Dog" class="dog" />
+
+      <!-- Sun and Moon Elements -->
+      <img src="sun.png" alt="Sun" class="sun" />
+      <img src="moon.png" alt="Moon" class="moon" />
+    </div>
+
+    <div class="bottom-half"></div>
+  </body>
+</html>

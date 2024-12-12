@@ -1,0 +1,29 @@
+[
+    {
+        "lastName": "Doe",
+        "firstName": "John",
+        "studentCode": "S123",
+        "age": 20,
+        "dateOfBirth": "2003-01-15",
+        "gpa": 3.5,
+        "onLeave": false
+    },
+    {
+        "lastName": "Smith",
+        "firstName": "Jane",
+        "studentCode": "S124",
+        "age": 22,
+        "dateOfBirth": "2001-07-23",
+        "gpa": 3.8,
+        "onLeave": true
+    },
+    {
+        "lastName": "Lee",
+        "firstName": "Chris",
+        "studentCode": "S125",
+        "age": 21,
+        "dateOfBirth": "2002-05-12",
+        "gpa": 3.2,
+        "onLeave": false
+    }
+]

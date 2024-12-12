@@ -1,0 +1,183 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1e1e1e;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #e91e63;
+  font-weight: bold;
+}
+
+.navbar img {
+  height: 50px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 1rem;
+}
+
+.nav-links a:hover {
+  color: #e91e63;
+  text-decoration: underline;
+}
+
+/* Anime Player Layout */
+.container {
+  display: flex;
+  height: 100vh;
+  padding: 20px;
+}
+
+.player-section {
+  flex: 7;
+  background-color: #000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.player-section video {
+  width: 100%;
+  height: 100%;
+}
+
+.info-section {
+  flex: 3;
+  padding: 20px;
+  background-color: #1f1f1f;
+  border-radius: 8px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.anime-title {
+  font-size: 2rem;
+  color: #e91e63;
+  margin-bottom: 1rem;
+}
+
+.anime-description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #ddd;
+  margin-bottom: 1.5rem;
+}
+
+.episode-list h3 {
+  font-size: 1.5rem;
+  color: #e91e63;
+  margin-bottom: 1rem;
+}
+
+.episode-list ul {
+  list-style: none;
+}
+
+.episode-list ul li {
+  margin-bottom: 10px;
+}
+
+.episode-list ul li a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.episode-list ul li a:hover {
+  color: #e91e63;
+}
+
+/* Footer Styles */
+.footer {
+  padding: 1rem;
+  text-align: center;
+  background-color: #222;
+  color: #888;
+}
+
+/* Hero Section (optional for banners) */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: #fff;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.hero-buttons button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  background-color: #e91e63;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.hero-buttons button:hover {
+  background-color: #d81b60;
+}

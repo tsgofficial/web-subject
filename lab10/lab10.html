@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enhanced Ball Clicking Game with Sound</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #000;
+        color: #fff;
+      }
+      canvas {
+        border: 2px solid #fff;
+        display: block;
+        margin-top: 20px;
+        background-color: #000;
+      }
+      .game-info {
+        margin: 10px;
+        text-align: center;
+      }
+      .game-over {
+        font-size: 24px;
+        color: red;
+      }
+      button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #fff;
+        color: #000;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="game-info">
+      <div>Round: <span id="round">1</span></div>
+      <div>Remaining Balls: <span id="remaining">5</span></div>
+      <div>Time Left: <span id="time">10</span>s</div>
+    </div>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <div id="gameOverScreen" style="display: none">
+      <div class="game-over">Game Over! You Lost!</div>
+      <button onclick="restartGame()">Restart Game</button>
+    </div>
+
+    <audio id="popSound" preload="auto">
+      <source src="pop.mp3" type="audio/mpeg" />
+    </audio>
+
+    <script>
+      const canvas = document.getElementById("gameCanvas");
+      const ctx = canvas.getContext("2d");
+      const roundDisplay = document.getElementById("round");
+      const remainingDisplay = document.getElementById("remaining");
+      const timeDisplay = document.getElementById("time");
+      const gameOverScreen = document.getElementById("gameOverScreen");
+      const popSound = document.getElementById("popSound");
+
+      let balls = [];
+      let round = 1;
+      let remainingBalls = 5;
+      let timer = 10;
+      let gameInterval;
+      let countdownInterval;
+
+      function distance(x1, y1, x2, y2) {
+        return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+      }
+
+      function resolveCollision(ball1, ball2) {
+        const xVelocityDiff = ball1.dx - ball2.dx;
+        const yVelocityDiff = ball1.dy - ball2.dy;
+
+        const xDist = ball2.x - ball1.x;
+        const yDist = ball2.y - ball1.y;
+
+        if (xVelocityDiff * xDist + yVelocityDiff * yDist >= 0) {
+          const angle = -Math.atan2(ball2.y - ball1.y, ball2.x - ball1.x);
+
+          const u1 = rotate(ball1.dx, ball1.dy, angle);
+          const u2 = rotate(ball2.dx, ball2.dy, angle);
+
+          const v1 = { x: u2.x, y: u1.y };
+          const v2 = { x: u1.x, y: u2.y };
+
+          const vFinal1 = rotate(v1.x, v1.y, -angle);
+          const vFinal2 = rotate(v2.x, v2.y, -angle);
+
+          ball1.dx = vFinal1.x;
+          ball1.dy = vFinal1.y;
+          ball2.dx = vFinal2.x;
+          ball2.dy = vFinal2.y;
+        }
+      }
+
+      function rotate(dx, dy, angle) {
+        return {
+          x: dx * Math.cos(angle) - dy * Math.sin(angle),
+          y: dx * Math.sin(angle) + dy * Math.cos(angle),
+        };
+      }
+
+      class Ball {
+        constructor(x, y, dx, dy, radius, color) {
+          this.x = x;
+          this.y = y;
+          this.dx = dx;
+          this.dy = dy;
+          this.radius = radius;
+          this.color = color;
+          this.isPopping = false;
+        }
+
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = this.color;
+          ctx.fill();
+          ctx.closePath();
+        }
+
+        move() {
+          if (!this.isPopping) {
+            this.x += this.dx;
+            this.y += this.dy;
+
+            if (
+              this.x + this.radius > canvas.width ||
+              this.x - this.radius < 0
+            ) {
+              this.dx = -this.dx;
+            }
+            if (
+              this.y + this.radius > canvas.height ||
+              this.y - this.radius < 0
+            ) {
+              this.dy = -this.dy;
+            }
+          }
+        }
+
+        pop() {
+          this.isPopping = true;    
+
+          const shrinkInterval = setInterval(() => {
+            if (this.radius > 0) {
+              this.radius -= 2;
+            } else {
+              clearInterval(shrinkInterval);
+              balls = balls.filter((ball) => ball !== this);
+              remainingBalls--;
+              updateUI();
+            }
+          }, 5);
+        }
+
+        isClicked(x, y) {
+          return distance(this.x, this.y, x, y) <= this.radius;
+        }
+      }
+
+      function generateBalls(count) {
+        balls = [];
+        for (let i = 0; i < count; i++) {
+          const radius = Math.random() * 20 + 10;
+          let x = Math.random() * (canvas.width - radius * 2) + radius;
+          let y = Math.random() * (canvas.height - radius * 2) + radius;
+
+          while (
+            balls.some((ball) => distance(x, y, ball.x, ball.y) < radius * 2)
+          ) {
+            x = Math.random() * (canvas.width - radius * 2) + radius;
+            y = Math.random() * (canvas.height - radius * 2) + radius;
+          }
+
+          const dx = (Math.random() - 0.5) * 4;
+          const dy = (Math.random() - 0.5) * 4;
+          const color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+
+          balls.push(new Ball(x, y, dx, dy, radius, color));
+        }
+      }
+
+      function startGame() {
+        round = 1;
+        remainingBalls = 5;
+        timer = 10;
+        updateUI();
+        generateBalls(remainingBalls);
+        startIntervals();
+      }
+
+      function startIntervals() {
+        gameInterval = setInterval(updateGame, 20);
+        countdownInterval = setInterval(updateTimer, 1000);
+      }
+
+      function updateGame() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        balls.forEach((ball) => {
+          ball.move();
+          ball.draw();
+        });
+
+        for (let i = 0; i < balls.length; i++) {
+          for (let j = i + 1; j < balls.length; j++) {
+            if (
+              distance(balls[i].x, balls[i].y, balls[j].x, balls[j].y) <=
+              balls[i].radius + balls[j].radius
+            ) {
+              resolveCollision(balls[i], balls[j]);
+            }
+          }
+        }
+
+        if (remainingBalls === 0) {
+          nextRound();
+        }
+      }
+
+      function updateTimer() {
+        timer -= 1;
+        updateUI();
+
+        if (timer === 0) {
+          endGame();
+        }
+      }
+
+      function nextRound() {
+        clearInterval(gameInterval);
+        clearInterval(countdownInterval);
+
+        round += 1;
+        remainingBalls = 5 + (round - 1) * 2;
+        timer = 10;
+
+        updateUI();
+        generateBalls(remainingBalls);
+        startIntervals();
+      }
+
+      function endGame() {
+        clearInterval(gameInterval);
+        clearInterval(countdownInterval);
+        gameOverScreen.style.display = "block";
+      }
+
+      function restartGame() {
+        gameOverScreen.style.display = "none";
+        startGame();
+      }
+
+      function updateUI() {
+        roundDisplay.textContent = round;
+        remainingDisplay.textContent = remainingBalls;
+        timeDisplay.textContent = timer;
+      }
+
+      canvas.addEventListener("click", (e) => {
+        const rect = canvas.getBoundingClientRect();
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+
+        balls.forEach((ball) => {
+          if (ball.isClicked(mouseX, mouseY) && !ball.isPopping) {
+            ball.pop();
+            popSound.currentTime = 0;
+            popSound.play();
+          }
+        });
+      });
+
+      startGame();
+    </script>
+  </body>
+</html>

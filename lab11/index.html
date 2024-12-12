@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX with JSONPlaceholder</title>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <h2>Asynchronous AJAX POST</h2>
+    <form id="postForm">
+      <textarea id="nameInput" placeholder="Enter your name"></textarea>
+      <textarea id="emailInput" placeholder="Enter your email"></textarea>
+      <textarea id="passwordInput" placeholder="Enter your password"></textarea>
+      <button type="submit">Send POST Request</button>
+    </form>
+    <div id="postResult"></div>
+
+    <h2>Asynchronous AJAX GET</h2>
+    <button id="fetchPosts">Fetch Posts</button>
+    <div>
+      <table border="1" id="usersTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Name</th>
+            <th>Role</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <h2>Asynchronous AJAX GET to Fetch JSON</h2>
+    <button id="fetchStudents">Fetch Students</button>
+    <table border="1" id="studentTable">
+      <thead>
+        <tr>
+          <th>Last Name</th>
+          <th>First Name</th>
+          <th>Student Code</th>
+          <th>Age</th>
+          <th>Date of Birth</th>
+          <th>GPA</th>
+          <th>On Leave</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </body>
+</html>

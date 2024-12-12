@@ -1,0 +1,111 @@
+<head>
+    <title>Мэдээлэл авах хуудас</title>
+    <link rel="stylesheet" href="lab5.css">
+</head>
+
+<body>
+    <h2>Хэрэглэгчийн мэдээлэл</h2>
+    <form id="myForm">
+        <div>
+            <label for="ner">Нэр:</label>
+            <input type="text" id="ner" name="ner" tabindex="3" required placeholder="Нэрээ бичнэ үү..."
+                minlength="2" maxlength="50">
+        </div>
+        <div>
+            <label for="nas">Нас:</label>
+            <input type="number" id="nas" name="nas" tabindex="1" placeholder="Насаа бичнэ үү..." min="0" max="120">
+        </div>
+        <div>
+            <label for="tursun_ognoo">Төрсөн огноо:</label>
+            <input type="date" id="tursun_ognoo" name="tursun_ognoo" tabindex="2">
+        </div>
+        <div>
+            <label for="tsag">Цаг:</label>
+            <input type="time" id="tsag" name="tsag">
+        </div>
+        <div>
+            <label>Хобби:</label><br>
+            <input type="checkbox" name="hobby" value="1"> Дугуй унах<br>
+            <input type="checkbox" name="hobby" value="2"> Ном унших<br>
+            <input type="checkbox" name="hobby" value="3"> Кино үзэх<br>
+            <input type="checkbox" name="hobby" value="4"> Хөгжим сонсох
+        </div>
+        <div>
+            <label>Хүйс:</label><br>
+            <input type="radio" name="huis" value="1" checked> Эрэгтэй<br>
+            <input type="radio" name="huis" value="0"> Эмэгтэй
+        </div>
+        <div>
+            <label for="tsahim_shuudan">Цахим шуудан:</label>
+            <input type="email" id="tsahim_shuudan" name="tsahim_shuudan" value="ner@must.edu.mn">
+        </div>
+        <div>
+            <label for="zurag">Зураг оруулах:</label>
+            <input type="file" id="zurag" name="zurag" accept="image/*">
+        </div>
+        <div>
+            <label for="audio">Аудио оруулах:</label>
+            <input type="file" id="audio" name="audio" accept="audio/*">
+        </div>
+        <div>
+            <label for="video">Видео оруулах:</label>
+            <input type="file" id="video" name="video" accept="video/*">
+        </div>
+        <div>
+            <label for="utas">Утасны дугаар:</label>
+            <input type="tel" id="utas" name="utas" placeholder="Утасны дугаараа оруулна уу">
+        </div>
+        <div>
+            <label for="web_hayag">Вэб хаяг:</label>
+            <input type="url" id="web_hayag" name="web_hayag" value="https://sict.edu.mn">
+        </div>
+        <div>
+            <label for="doloo_honog">Долоо хоног:</label>
+            <input type="week" id="doloo_honog" name="doloo_honog">
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <th>№</th>
+                    <th>Сургууль</th>
+                    <th>Мэргэжил</th>
+                    <th>Төлөв</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Хөгжил Цогцолбор сургууль</td>
+                    <td>-</td>
+                    <td>Суралцсан</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Шинжлэх ухаан технологийн их сургууль</td>
+                    <td>Програм хангамжийн инженерчлэл</td>
+                    <td>Суралцаж буй</td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <label for="songolt">Дүүрэг сонгох:</label>
+            <select name="songolt" id="songolt" size="5" multiple>
+                <option value="1">Баянзүрх</option>
+                <option value="2">Сүхбаатар</option>    
+                <option value="3">Сонгинохайрхан</option>
+                <option value="4">Чингэлтэй</option>
+                <option value="5">Хан-Уул</option>
+            </select>
+        </div>
+        <div>
+            <input type="submit" value="Мэдээлэл илгээх">
+            <input type="reset" onclick="document.getElementById('myForm').reset();" value="Мэдээллийг арилгах">
+        </div>
+        <video controls width="600">
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        </video>
+        <audio controls>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        </audio>
+    </form>
+</body>
+
+</html>

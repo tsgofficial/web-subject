@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anime Player - Watch Your Favorite Anime</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="logo">
+        <img
+          src="https://cdn.dribbble.com/userupload/10008676/file/original-4790efe7d328855b920b19eef6f67ff1.jpg?resize=400x300&vertical=center"
+          alt="Anime"
+          style="height: 50px; vertical-align: middle"
+        />
+        <span style="margin-left: 10px">Storm Anime</span>
+      </div>
+
+      <div class="nav-links">
+        <a href="popular.html">Popular Anime</a>
+        <a href="anime-list.html">Anime List</a>
+        <a href="genres.html">Genres</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <video class="hero-video" autoplay muted loop>
+        <source
+          src="https://cdn.pixabay.com/video/2021/11/26/98970-650472561_large.mp4"
+          type="video/mp4"
+        />
+      </video>
+      <div>
+        <h1>Stream Your Favorite Anime Anytime</h1>
+        <p>
+          Watch the latest anime series and discover new favorites with Anime
+          Player!
+        </p>
+        <div class="hero-buttons">
+          <button onclick="location.href='popular.html'">Popular Anime</button>
+          <button onclick="location.href='anime-list.html'">
+            Explore Anime List
+          </button>
+          <button onclick="location.href='genres.html'">Browse Genres</button>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <p>&copy; 2024</p>
+    </footer>
+  </body>
+</html>

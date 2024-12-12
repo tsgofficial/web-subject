@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anime Player</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="logo">
+        <img
+          src="https://cdn.dribbble.com/userupload/10008676/file/original-4790efe7d328855b920b19eef6f67ff1.jpg?resize=400x300&vertical=center"
+          alt="Anime"
+          style="height: 50px; vertical-align: middle"
+        />
+        <span style="margin-left: 10px">Storm Anime</span>
+      </div>
+
+      <div class="nav-links">
+        <a href="popular.html">Popular Anime</a>
+        <a href="anime-list.html">Anime List</a>
+        <a href="genres.html">Genres</a>
+      </div>
+    </div>
+
+    <!-- Anime Player Section -->
+    <div class="container">
+      <!-- Video Player Section with YouTube Embed -->
+      <div class="player-section">
+        <iframe
+          width="100%"
+          height="100%"
+          src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <!-- Information Section (Anime Info + Episodes) -->
+      <div class="info-section">
+        <h1 class="anime-title">Attack on Titan</h1>
+        <p class="anime-description">
+          A dark fantasy anime that tells the story of humanity's fight for
+          survival against the terrifying Titans who threaten their existence.
+        </p>
+
+        <div class="episode-list">
+          <h3>Episodes</h3>
+          <ul>
+            <li><a href="#">Episode 1: The Beginning</a></li>
+            <li><a href="#">Episode 2: The Adventure Continues</a></li>
+            <li><a href="#">Episode 3: The First Battle</a></li>
+            <li><a href="#">Episode 4: The Journey Deepens</a></li>
+            <li><a href="#">Episode 5: The New Ally</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>© 2024 AnimePlayer. All rights reserved.</p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+body {
+  background-image: url("https://img.freepik.com/premium-photo/grainy-gradient-background-red-white-blue-colors-with-soft-faded-watercolor-border-texture_927344-24167.jpg"); /* Replace with your image name */
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+h2 {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+form {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 20px;
+}
+
+div {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  color: #34495e;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+input[type="email"],
+input[type="file"],
+input[type="tel"],
+input[type="url"],
+input[type="week"],
+select {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+input[type="email"]:focus,
+input[type="file"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="week"]:focus,
+select:focus {
+  border-color: #2980b9;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+input[type="submit"],
+input[type="reset"] {
+  background-color: #2980b9;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+  background-color: #1f6391;
+}
+
+video,
+audio {
+  display: block;
+  margin: auto;
+  border-radius: 20px;
+  max-width: 100%;
+}
+
+
+table {
+  width: 100%;
+}
+
+th,
+td {
+  padding: 12px 20px;
+  text-align: left;
+}
+
+table,
+th,
+td {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
