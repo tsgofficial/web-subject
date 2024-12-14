@@ -1,4 +1,3 @@
-/* Global Styles */
 * {
   margin: 0;
   padding: 0;
@@ -14,7 +13,6 @@ body {
   padding: 0;
 }
 
-/* Navbar Styles */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -52,23 +50,10 @@ body {
   text-decoration: underline;
 }
 
-/* Anime Player Layout */
 .container {
   display: flex;
   height: 100vh;
   padding: 20px;
-}
-
-.player-section {
-  flex: 7;
-  background-color: #000;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.player-section video {
-  width: 100%;
-  height: 100%;
 }
 
 .info-section {
@@ -119,7 +104,6 @@ body {
   color: #e91e63;
 }
 
-/* Footer Styles */
 .footer {
   padding: 1rem;
   text-align: center;
@@ -127,7 +111,6 @@ body {
   color: #888;
 }
 
-/* Hero Section (optional for banners) */
 .hero {
   height: 100vh;
   display: flex;
@@ -180,4 +163,96 @@ body {
 
 .hero-buttons button:hover {
   background-color: #d81b60;
+}
+
+.player-section {
+  flex: 7;
+  background-color: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  height: 70vh;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.player-section iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.navigation-buttons {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.navigation-buttons .button {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.navigation-buttons .button:hover {
+  background-color: #45a049;
+}
+
+.info-section {
+  margin-top: 20px;
+}
+
+.anime-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.anime-description {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.episode-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.episode-list li {
+  margin-bottom: 10px;
+}
+
+.episode-list a {
+  text-decoration: none;
+  color: #333;
+}
+
+.episode-list a:hover {
+  color: #4caf50;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+}
+
+.player-container {
+  flex: 2;
+  padding: 20px;
+  background-color: #1f1f1f;
+  border-radius: 8px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
 }
